@@ -19,7 +19,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="sticky top-0 z-50 border-b border-[hsl(var(--border)/0.4)] bg-[hsl(var(--background)/0.65)] backdrop-blur-md supports-[backdrop-filter]:bg-[hsl(var(--background)/0.55)] shadow-[0_4px_12px_-2px_hsl(var(--background)_/_0.6)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -41,8 +41,8 @@ const Header = () => {
                 to={item.href}
                 className={`nav-link font-medium transition-colors duration-200 ${
                   isActive(item.href)
-                    ? 'text-primary'
-                    : 'text-foreground hover:text-primary'
+                    ? 'text-primary after:w-full'
+                    : 'text-[hsl(var(--text-secondary))] hover:text-foreground'
                 }`}
               >
                 {item.name}
@@ -52,7 +52,7 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button asChild className="btn-hero">
+            <Button asChild className="btn-nav-cta">
               <Link to="/booking">Prendre RDV</Link>
             </Button>
           </div>
@@ -75,7 +75,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in-up">
+          <div className="md:hidden py-4 border-t border-[hsl(var(--border)/0.4)] animate-fade-in-up bg-[hsl(var(--background)/0.9)] backdrop-blur-md">
             <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
@@ -84,14 +84,14 @@ const Header = () => {
                   className={`font-medium transition-colors duration-200 ${
                     isActive(item.href)
                       ? 'text-primary'
-                      : 'text-foreground hover:text-primary'
+                      : 'text-[hsl(var(--text-secondary))] hover:text-foreground'
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button asChild className="btn-hero w-fit">
+              <Button asChild className="btn-nav-cta w-fit">
                 <Link to="/booking" onClick={() => setIsMobileMenuOpen(false)}>
                   Prendre RDV
                 </Link>

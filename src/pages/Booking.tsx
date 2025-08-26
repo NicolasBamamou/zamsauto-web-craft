@@ -319,7 +319,7 @@ const Booking = () => {
                   <div className="mt-8 space-y-4">
                     <Button 
                       type="submit" 
-                      className="btn-hero w-full text-lg py-4"
+                      className="btn-confirm"
                       disabled={!selectedService || !selectedDate || !selectedTime}
                     >
                       Confirmer le rendez-vous
@@ -335,25 +335,37 @@ const Booking = () => {
           </div>
         </section>
 
-        {/* Quick Contact */}
-        <section className="py-16 bg-accent">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-poppins font-bold mb-6">
-              Besoin d'aide pour réserver ?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Notre équipe est disponible pour vous aider à choisir le meilleur service
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="contact-btn">
+        {/* Quick Contact (modern dark gradient) */}
+        <section className="relative py-24 overflow-hidden">
+          {/* Base layered gradients */}
+          <div className="absolute inset-0 -z-10 pointer-events-none bg-[linear-gradient(140deg,hsl(215_14%_9%)_0%,hsl(221_58%_14%)_45%,hsl(221_65%_17%)_70%,hsl(221_66%_20%)_100%)]" />
+          {/* Radial accent glows */}
+          <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_18%_30%,hsl(221_80%_52%/.18),transparent_60%),radial-gradient(circle_at_82%_70%,hsl(221_85%_48%/.15),transparent_65%),radial-gradient(circle_at_50%_100%,hsl(221_70%_35%/.25),transparent_70%)]" />
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 -z-10 opacity-[0.07] mix-blend-overlay pointer-events-none bg-[linear-gradient(to_right,hsl(var(--border)/0.6)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.6)_1px,transparent_1px)] bg-[size:120px_120px]" />
+          {/* Top divider line */}
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
+
+          <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <span className="inline-block px-3 py-1 mb-6 text-xs tracking-wider rounded-full border border-[hsl(var(--border)/0.5)] bg-[hsl(var(--surface-overlay))] text-[hsl(var(--text-secondary))] uppercase">Assistance</span>
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 tracking-tight">
+                Besoin d'aide pour réserver ?
+              </h2>
+              <p className="text-lg text-[hsl(var(--text-secondary))] mb-10 leading-relaxed">
+                Notre équipe est disponible pour vous guider et choisir le meilleur service pour votre véhicule.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+              <Button asChild className="btn-hero px-10 py-5 text-base">
                 <a href="tel:+224XXXXXXXX">
-                  <Phone className="h-4 w-4 mr-2" />
+                  <Phone className="h-5 w-5 mr-2" />
                   Appeler maintenant
                 </a>
               </Button>
-              <Button asChild className="whatsapp-btn">
+              <Button asChild variant="outline" className="px-10 py-5 text-base border-[hsl(var(--border)/0.6)] hover:bg-[hsl(var(--card))]">
                 <a href="https://wa.me/224XXXXXXXX" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-4 w-4 mr-2" />
+                  <MessageCircle className="h-5 w-5 mr-2" />
                   WhatsApp
                 </a>
               </Button>

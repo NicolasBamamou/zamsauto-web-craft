@@ -65,7 +65,7 @@ const Services = () => {
       
       <main>
         {/* Hero Section */}
-        <section className="bg-gradient-hero text-white py-16">
+  <section className="bg-gradient-hero text-white py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-poppins font-bold mb-6">
               Nos Services Professionnels
@@ -78,21 +78,22 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-16">
+        <section className="py-20 relative">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <Card 
                   key={service.id} 
-                  className={`service-card ${service.color} animate-fade-in-up`}
+                  className={`service-card animate-fade-in-up bg-[hsl(var(--card))] border border-[hsl(var(--border))] hover:border-[hsl(var(--border)/0.7)] transition-colors`}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardHeader className="text-center">
                     <div className="mx-auto bg-gradient-primary p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
                       <service.icon className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-poppins">{service.title}</CardTitle>
-                    <CardDescription className="text-sm">
+                    <CardTitle className="text-xl font-poppins text-foreground">{service.title}</CardTitle>
+                    <CardDescription className="text-sm text-[hsl(var(--text-secondary))]">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
@@ -112,12 +113,12 @@ const Services = () => {
                       {/* Price & Duration */}
                       <div className="border-t border-accent pt-4 space-y-2">
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-muted-foreground">Prix:</span>
-                          <span className="font-semibold text-primary">{service.price}</span>
+                          <span className="text-sm text-[hsl(var(--text-secondary))]">Prix:</span>
+                          <span className="font-semibold text-primary tracking-tight">{service.price}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-sm text-muted-foreground">Durée:</span>
-                          <span className="font-medium">{service.duration}</span>
+                          <span className="text-sm text-[hsl(var(--text-secondary))]">Durée:</span>
+                          <span className="font-medium text-foreground">{service.duration}</span>
                         </div>
                       </div>
                       
@@ -135,20 +136,38 @@ const Services = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-accent py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-poppins font-bold mb-6">
+        {/* CTA Section (modern layered design) */}
+        <section className="relative py-32 overflow-hidden">
+          {/* Layered gradients */}
+          <div className="absolute inset-0 -z-20 pointer-events-none bg-[linear-gradient(140deg,hsl(215_14%_9%)_0%,hsl(221_58%_14%)_45%,hsl(221_63%_18%)_70%,hsl(221_66%_22%)_100%)]" />
+          {/* Accent glows */}
+            <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_18%_30%,hsl(221_80%_52%/.18),transparent_60%),radial-gradient(circle_at_82%_70%,hsl(221_85%_48%/.15),transparent_65%),radial-gradient(circle_at_50%_100%,hsl(221_70%_35%/.25),transparent_70%)]" />
+          {/* Subtle grid */}
+          <div className="absolute inset-0 -z-10 opacity-[0.06] mix-blend-overlay pointer-events-none bg-[linear-gradient(to_right,hsl(var(--border)/0.6)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.6)_1px,transparent_1px)] bg-[size:140px_140px]" />
+          {/* Top divider */}
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
+          {/* Floating decorative elements */}
+          <div className="absolute -top-10 -right-10 w-72 h-72 bg-gradient-primary opacity-20 blur-3xl rounded-full" />
+          <div className="absolute -bottom-16 -left-16 w-96 h-96 bg-[linear-gradient(120deg,hsl(221_80%_50%/.25),hsl(221_80%_60%/.15))] opacity-30 blur-3xl rounded-full" />
+
+          <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="mb-6 flex justify-center">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[hsl(var(--border)/0.5)] bg-[hsl(var(--surface-overlay))] text-[10px] tracking-wider uppercase text-[hsl(var(--text-secondary))]">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                Service Premium
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 tracking-tight">
               Prêt à entretenir votre véhicule ?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Prenez rendez-vous dès maintenant ou contactez-nous pour plus d'informations
+            <p className="text-lg text-[hsl(var(--text-secondary))] mb-12 leading-relaxed max-w-2xl mx-auto">
+              Réservez votre entretien en quelques secondes ou contactez notre équipe pour des conseils personnalisés.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild className="btn-hero">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button asChild className="btn-hero px-12 py-6 text-base">
                 <Link to="/booking">Prendre rendez-vous</Link>
               </Button>
-              <Button asChild className="contact-btn">
+              <Button asChild variant="outline" className="px-12 py-6 text-base border-[hsl(var(--border)/0.55)] hover:bg-[hsl(var(--card))]">
                 <a href="tel:+224XXXXXXXX">Appeler maintenant</a>
               </Button>
             </div>

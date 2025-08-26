@@ -4,13 +4,13 @@ import { Button } from '@/components/ui/button';
 
 const Footer = () => {
   return (
-    <footer className="bg-accent text-foreground">
+  <footer className="footer-bg text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="bg-gradient-primary p-2 rounded-xl">
+              <div className="bg-gradient-primary p-2 rounded-xl shadow-sm shadow-[hsl(var(--primary)/0.4)]">
                 <Car className="h-6 w-6 text-white" />
               </div>
               <div>
@@ -26,7 +26,7 @@ const Footer = () => {
 
           {/* Services Rapides */}
           <div>
-            <h4 className="font-poppins font-semibold mb-4">Nos Services</h4>
+            <h4 className="font-poppins font-semibold mb-4 text-foreground">Nos Services</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to="/services" className="hover:text-primary transition-colors">Lavage Premium</Link></li>
               <li><Link to="/services" className="hover:text-primary transition-colors">Changement d'huile</Link></li>
@@ -38,7 +38,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-poppins font-semibold mb-4">Contact</h4>
+            <h4 className="font-poppins font-semibold mb-4 text-foreground">Contact</h4>
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-primary" />
@@ -61,7 +61,7 @@ const Footer = () => {
 
           {/* Actions Rapides */}
           <div>
-            <h4 className="font-poppins font-semibold mb-4">Actions Rapides</h4>
+            <h4 className="font-poppins font-semibold mb-4 text-foreground">Actions Rapides</h4>
             <div className="space-y-3">
               <Button asChild className="contact-btn w-full justify-start">
                 <a href="tel:+224XXXXXXXX">

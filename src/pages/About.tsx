@@ -100,32 +100,40 @@ const About = () => {
         </section>
 
         {/* Values Section */}
-        <section className="py-16 bg-accent">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 z-0 pointer-events-none bg-[linear-gradient(135deg,hsl(215_14%_9%)_0%,hsl(221_55%_14%)_45%,hsl(221_60%_18%)_100%)]" />
+          <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_15%_20%,hsl(221_83%_30%/_0.35),transparent_60%),radial-gradient(circle_at_85%_80%,hsl(221_83%_25%/_0.25),transparent_65%)]" />
+          <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.05] mix-blend-overlay bg-[url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'><path d=\'M0 200H400V201H0z\' fill=\'%23ffffff\' fill-opacity=\'0.05\'/><path d=\'M200 0V400H199V0z\' fill=\'%23ffffff\' fill-opacity=\'0.05\'/></svg>')]" />
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-5 tracking-tight text-foreground">
                 Nos Valeurs
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-lg text-[hsl(var(--text-secondary))] max-w-3xl mx-auto leading-relaxed">
                 Les principes qui guident notre travail au quotidien
               </p>
             </div>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value, index) => (
-                <Card 
-                  key={value.title} 
-                  className="animate-scale-in bg-white hover:shadow-lg transition-all duration-300"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                <Card
+                  key={value.title}
+                  className="relative animate-fade-in-up bg-[hsl(var(--card)_/_0.82)] backdrop-blur-sm border border-[hsl(var(--border)/0.5)] hover:border-[hsl(var(--border)/0.85)] transition-all duration-300 shadow-[0_4px_14px_-4px_hsl(var(--background)_/_0.55),0_2px_4px_-1px_hsl(var(--background)_/_0.35)] hover:shadow-[0_8px_22px_-6px_hsl(var(--background)_/_0.6),0_3px_10px_-2px_hsl(var(--background)_/_0.45)]"
+                  style={{ animationDelay: `${index * 0.12}s` }}
                 >
                   <CardHeader className="text-center">
-                    <div className="mx-auto bg-gradient-secondary p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
-                      <value.icon className="h-8 w-8 text-white" />
+                    <div className="mx-auto relative w-16 h-16 mb-5">
+                      <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,hsl(221_83%_55%/_0.6),hsl(221_83%_30%/_0.15))]" />
+                      <div className="absolute inset-0 rounded-full ring-1 ring-white/10" />
+                      <div className="w-full h-full flex items-center justify-center relative">
+                        <value.icon className="h-7 w-7 text-primary" />
+                      </div>
                     </div>
-                    <CardTitle className="text-xl font-poppins">{value.title}</CardTitle>
+                    <CardTitle className="text-lg font-poppins text-foreground tracking-tight">
+                      {value.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-center text-sm text-muted-foreground">
+                    <p className="text-center text-sm text-[hsl(var(--text-secondary))] leading-relaxed">
                       {value.description}
                     </p>
                   </CardContent>
@@ -135,52 +143,57 @@ const About = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-poppins font-bold mb-4">
-                ZAMSA en Chiffres
-              </h2>
+        {/* Stats Section (ambient cards) */}
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0 -z-20 pointer-events-none bg-[linear-gradient(135deg,hsl(215_14%_9%)_0%,hsl(221_56%_15%)_55%,hsl(221_62%_19%)_100%)]" />
+          <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_20%_30%,hsl(221_80%_52%/.18),transparent_65%),radial-gradient(circle_at_80%_70%,hsl(221_85%_48%/.15),transparent_65%)]" />
+          <div className="absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[linear-gradient(to_right,hsl(var(--border)/0.5)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.5)_1px,transparent_1px)] bg-[size:160px_160px]" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 tracking-tight">ZAMSA en Chiffres</h2>
             </div>
-            
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
-                <div 
-                  key={stat.label} 
-                  className="text-center animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                <div
+                  key={stat.label}
+                  className="group relative text-center animate-fade-in-up p-6 rounded-2xl border border-[hsl(var(--border)/0.55)] bg-[hsl(var(--card)_/_0.8)] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-[hsl(var(--border)/0.85)] before:absolute before:inset-0 before:rounded-[inherit] before:bg-[radial-gradient(circle_at_50%_40%,hsl(221_80%_55%/.18),transparent_68%)] before:opacity-0 hover:before:opacity-100 hover:shadow-[0_8px_22px_-6px_hsl(var(--background)_/_0.65),0_3px_10px_-2px_hsl(var(--background)_/_0.55)]"
+                  style={{ animationDelay: `${index * 0.15}s` }}
                 >
-                  <div className="text-4xl md:text-5xl font-poppins font-bold text-primary mb-2">
-                    {stat.number}
+                  <div className="relative z-10">
+                    <div className="text-4xl md:text-5xl font-poppins font-bold text-primary mb-2 tracking-tight">
+                      {stat.number}
+                    </div>
+                    <p className="text-[hsl(var(--text-secondary))] font-medium text-sm uppercase tracking-wide">{stat.label}</p>
                   </div>
-                  <p className="text-muted-foreground font-medium">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Location Section */}
-        <section className="py-16 bg-gradient-hero text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex items-center justify-center mb-6">
-              <MapPin className="h-8 w-8 mr-3" />
-              <h2 className="text-3xl font-poppins font-bold">
-                Notre Localisation
-              </h2>
+        {/* Location Section (immersive) */}
+        <section className="relative py-28 overflow-hidden">
+          <div className="absolute inset-0 -z-20 pointer-events-none bg-[linear-gradient(140deg,hsl(215_14%_9%)_0%,hsl(221_58%_14%)_45%,hsl(221_63%_18%)_70%,hsl(221_66%_22%)_100%)]" />
+          <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_22%_28%,hsl(221_80%_52%/.18),transparent_60%),radial-gradient(circle_at_78%_72%,hsl(221_85%_48%/.15),transparent_65%),radial-gradient(circle_at_50%_100%,hsl(221_70%_35%/.23),transparent_70%)]" />
+          <div className="absolute inset-0 -z-10 opacity-[0.06] mix-blend-overlay pointer-events-none bg-[linear-gradient(to_right,hsl(var(--border)/0.6)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.6)_1px,transparent_1px)] bg-[size:140px_140px]" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-[hsl(var(--border)/0.5)] bg-[hsl(var(--surface-overlay))] text-[10px] tracking-wider uppercase text-[hsl(var(--text-secondary))]">
+              <MapPin className="h-4 w-4 text-primary" />
+              Localisation
             </div>
-            <p className="text-xl mb-8 opacity-90">
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 tracking-tight text-foreground">
+              Notre Localisation
+            </h2>
+            <p className="text-xl mb-12 text-[hsl(var(--text-secondary))] max-w-2xl mx-auto leading-relaxed">
               Idéalement situés à Nzérékoré pour servir toute la région de la Guinée forestière
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <h3 className="text-2xl font-semibold mb-4">Nzérékoré, Guinée</h3>
-              <p className="text-lg opacity-90 mb-4">
-                Centre-ville, facilement accessible depuis tous les quartiers
-              </p>
-              <p className="opacity-80">
-                Horaires d'ouverture : Lundi - Samedi, 8h00 - 18h00
-              </p>
+            <div className="relative bg-[hsl(var(--card)_/_0.85)] backdrop-blur-sm rounded-2xl p-10 border border-[hsl(var(--border)/0.55)] overflow-hidden shadow-[0_8px_22px_-6px_hsl(var(--background)_/_0.65),0_3px_10px_-2px_hsl(var(--background)_/_0.55)]">
+              <div className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-700 bg-[radial-gradient(circle_at_50%_35%,hsl(221_80%_55%/.18),transparent_70%)]" />
+              <h3 className="text-2xl font-semibold mb-6 text-foreground">Nzérékoré, Guinée</h3>
+              <p className="text-lg mb-4 text-[hsl(var(--text-secondary))]">Centre-ville, facilement accessible depuis tous les quartiers</p>
+              <p className="text-[hsl(var(--text-secondary))]">Horaires d'ouverture : Lundi - Samedi, 8h00 - 18h00</p>
             </div>
           </div>
         </section>

@@ -73,26 +73,23 @@ const Gallery = () => {
           </div>
         </section>
 
-        {/* Category Filter */}
-        <section className="py-8 bg-white sticky top-16 z-40 border-b border-border">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-4">
-              {categories.map((category) => (
-                <Button
+        {/* Category Filter (glass bar) */}
+        <section className="sticky top-16 z-40 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background)/0.6)] bg-[hsl(var(--background)/0.85)]/80 border-b border-[hsl(var(--border)/0.5)] py-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-4">
+            {categories.map((category) => {
+              const active = selectedCategory === category.id;
+              return (
+                <button
                   key={category.id}
-                  variant={selectedCategory === category.id ? "default" : "outline"}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center gap-2 ${
-                    selectedCategory === category.id 
-                      ? 'bg-primary text-white' 
-                      : 'hover:bg-accent'
-                  }`}
+                  className={`relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${active ? 'border-primary/70 text-primary-foreground' : 'border-[hsl(var(--border)/0.5)] text-[hsl(var(--text-secondary))] hover:border-[hsl(var(--border)/0.8)]'} ${active ? 'bg-gradient-primary shadow-primary/30 shadow-lg' : 'bg-[hsl(var(--card))] hover:bg-[hsl(var(--card)/0.9)]'}`}
                 >
-                  <category.icon className="h-4 w-4" />
+                  <category.icon className={`h-4 w-4 ${active ? 'text-white' : 'text-primary'}`} />
                   {category.name}
-                </Button>
-              ))}
-            </div>
+                  {active && <span className="absolute inset-0 rounded-full ring-2 ring-primary/40 animate-pulse" />}
+                </button>
+              );
+            })}
           </div>
         </section>
 
@@ -154,28 +151,28 @@ const Gallery = () => {
           </section>
         )}
 
-        {/* Regular Gallery */}
+        {/* Regular Gallery (modern dark gradient section) */}
         {standaloneItems.length > 0 && (
-          <section className="py-16 bg-accent">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-poppins font-bold text-center mb-12">
-                Nos Réalisations
-              </h2>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <section className="relative py-24 overflow-hidden">
+            <div className="absolute inset-0 -z-20 pointer-events-none bg-[linear-gradient(140deg,hsl(215_14%_9%)_0%,hsl(221_58%_14%)_45%,hsl(221_63%_18%)_70%,hsl(221_66%_22%)_100%)]" />
+            <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_15%_25%,hsl(221_80%_52%/.18),transparent_60%),radial-gradient(circle_at_85%_75%,hsl(221_85%_48%/.15),transparent_65%),radial-gradient(circle_at_50%_100%,hsl(221_70%_35%/.25),transparent_70%)]" />
+            <div className="absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[linear-gradient(to_right,hsl(var(--border)/0.5)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.5)_1px,transparent_1px)] bg-[size:160px_160px]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-14 tracking-tight">Nos Réalisations</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                 {standaloneItems.map((item, index) => (
-                  <Card 
+                  <Card
                     key={item.id}
-                    className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-scale-in"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="relative overflow-hidden group animate-scale-in border border-[hsl(var(--border))]/60 bg-[hsl(var(--card))] backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                    style={{ animationDelay: `${index * 0.12}s` }}
                   >
                     <CardContent className="p-0">
-                      <div className="relative">
-                        <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                          <div className="text-center text-primary">
-                            <Car className="h-16 w-16 mx-auto mb-4" />
-                            <h3 className="font-semibold">{item.title}</h3>
-                          </div>
+                      <div className="relative aspect-square flex items-center justify-center">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(221_80%_55%/.12),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="text-center relative z-10">
+                          <Car className="h-16 w-16 mx-auto mb-4 text-primary drop-shadow" />
+                          <h3 className="font-semibold text-foreground">{item.title}</h3>
                         </div>
                       </div>
                     </CardContent>

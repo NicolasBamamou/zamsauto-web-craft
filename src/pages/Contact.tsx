@@ -109,35 +109,47 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Quick Actions */}
-        <section className="py-16 bg-accent">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-poppins font-bold mb-4">
+        {/* Quick Actions (modern layered gradient) */}
+        <section className="relative py-28 overflow-hidden">
+          {/* Base gradient layers */}
+          <div className="absolute inset-0 -z-20 pointer-events-none bg-[linear-gradient(140deg,hsl(215_14%_9%)_0%,hsl(221_58%_14%)_45%,hsl(221_63%_18%)_70%,hsl(221_66%_22%)_100%)]" />
+          {/* Accent radial glows */}
+          <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_15%_25%,hsl(221_80%_52%/.18),transparent_60%),radial-gradient(circle_at_85%_75%,hsl(221_85%_48%/.15),transparent_65%),radial-gradient(circle_at_50%_100%,hsl(221_70%_35%/.25),transparent_70%)]" />
+          {/* Subtle grid texture */}
+          <div className="absolute inset-0 -z-10 opacity-[0.06] mix-blend-overlay pointer-events-none bg-[linear-gradient(to_right,hsl(var(--border)/0.6)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.6)_1px,transparent_1px)] bg-[size:140px_140px]" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14 max-w-3xl mx-auto">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[hsl(var(--border)/0.5)] bg-[hsl(var(--surface-overlay))] text-[10px] tracking-wider uppercase text-[hsl(var(--text-secondary))] mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                Contact Express
+              </span>
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 tracking-tight">
                 Actions Rapides
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Choisissez le moyen de contact qui vous convient le mieux
+              <p className="text-lg text-[hsl(var(--text-secondary))] leading-relaxed">
+                Choisissez le moyen le plus pratique pour nous joindre immédiatement.
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               {quickActions.map((action, index) => (
-                <Card 
+                <Card
                   key={action.title}
-                  className="text-center hover:shadow-lg transition-all duration-300 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  className="relative overflow-hidden group animate-scale-in border border-[hsl(var(--border))]/60 bg-[hsl(var(--card))] backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                  style={{ animationDelay: `${index * 0.15}s` }}
                 >
-                  <CardHeader>
-                    <div className="mx-auto bg-gradient-secondary p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_0%,hsl(221_80%_55%/.18),transparent_70%)]" />
+                  <CardHeader className="text-center relative">
+                    <div className="mx-auto bg-gradient-primary p-3 rounded-full w-16 h-16 flex items-center justify-center mb-4 shadow-lg shadow-primary/30">
                       <action.icon className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-poppins">{action.title}</CardTitle>
-                    <CardDescription>{action.description}</CardDescription>
+                    <CardTitle className="text-xl font-poppins mb-1">{action.title}</CardTitle>
+                    <CardDescription className="text-[hsl(var(--text-secondary))]">{action.description}</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <Button asChild className={`${action.style} w-full`}>
-                      <a 
+                  <CardContent className="relative">
+                    <Button asChild className={`${action.style} w-full justify-center`}> 
+                      <a
                         href={action.href}
                         target={action.href.startsWith('http') ? '_blank' : undefined}
                         rel={action.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -238,26 +250,28 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Map Section */}
-        <section className="py-16 bg-accent">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-poppins font-bold mb-4">
-                Notre Localisation
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Nous sommes idéalement situés au centre de Nzérékoré
-              </p>
+        {/* Map Section (immersive dark gradient) */}
+        <section className="relative py-28 overflow-hidden">
+          <div className="absolute inset-0 -z-20 pointer-events-none bg-[linear-gradient(135deg,hsl(215_14%_9%)_0%,hsl(221_56%_15%)_55%,hsl(221_62%_19%)_100%)]" />
+          <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(circle_at_20%_30%,hsl(221_80%_52%/.18),transparent_65%),radial-gradient(circle_at_85%_80%,hsl(221_85%_48%/.15),transparent_65%)]" />
+          <div className="absolute inset-0 -z-10 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[linear-gradient(to_right,hsl(var(--border)/0.5)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.5)_1px,transparent_1px)] bg-[size:160px_160px]" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--border)/0.4)] to-transparent" />
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14 max-w-3xl mx-auto">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-[hsl(var(--border)/0.5)] bg-[hsl(var(--surface-overlay))] text-[10px] tracking-wider uppercase text-[hsl(var(--text-secondary))] mb-6">Localisation</span>
+              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 tracking-tight">Notre Localisation</h2>
+              <p className="text-lg text-[hsl(var(--text-secondary))]">Nous sommes idéalement situés au centre de Nzérékoré</p>
             </div>
-            
-            <Card className="overflow-hidden">
+            <Card className="relative overflow-hidden border border-[hsl(var(--border)/0.6)] bg-[hsl(var(--card))]/60 backdrop-blur">
               <CardContent className="p-0">
-                <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <MapPin className="h-16 w-16 mx-auto mb-4 text-primary" />
-                    <h3 className="text-xl font-semibold mb-2">ZAMSA - Nzérékoré</h3>
+                <div className="relative aspect-video flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsl(221_80%_55%/.08),transparent_70%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(to_bottom,hsl(var(--background)/0),hsl(var(--background)/0.4))]" />
+                  <div className="text-center relative z-10 text-[hsl(var(--text-secondary))]">
+                    <MapPin className="h-16 w-16 mx-auto mb-5 text-primary drop-shadow" />
+                    <h3 className="text-2xl font-semibold mb-2 text-foreground">ZAMSA - Nzérékoré</h3>
                     <p>Centre-ville, près du marché central</p>
-                    <p className="text-sm mt-2">Carte interactive bientôt disponible</p>
+                    <p className="text-sm mt-3 italic">Carte interactive bientôt disponible</p>
                   </div>
                 </div>
               </CardContent>
