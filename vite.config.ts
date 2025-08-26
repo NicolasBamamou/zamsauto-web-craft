@@ -16,4 +16,10 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // GitHub Pages deployment configuration
+  base: mode === 'production' ? '/zamsauto-web-craft/' : '/',
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+  },
 }));

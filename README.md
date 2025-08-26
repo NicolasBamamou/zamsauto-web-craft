@@ -1,57 +1,108 @@
-# ZAMSA Web
+# ZAMSA - Zaly Multi-Services Auto
 
-Modern React + Vite + TypeScript application for ZAMSA (Zaly Multi-Services Auto).
+## Deployment Status
+[![Deploy to GitHub Pages](https://github.com/NicolasBamamou/zamsauto-web-craft/actions/workflows/deploy.yml/badge.svg)](https://github.com/NicolasBamamou/zamsauto-web-craft/actions/workflows/deploy.yml)
 
-## How can I edit this code?
+## Live Demo
+🌐 **[View Live Site](https://NicolasBamamou.github.io/zamsauto-web-craft/)**
 
-There are several ways of editing your application.
+## About
+Professional automotive service website for ZAMSA (Zaly Multi-Services Auto) - your trusted partner for automotive maintenance in Nzérékoré, Guinea.
 
-**Local Development**
+## Features
+- Modern dark-themed UI with glass morphism effects
+- Responsive design optimized for all devices
+- Interactive service booking system
+- Professional gallery with before/after showcase
+- Contact forms and location information
+- Multi-page routing with React Router
 
-If you want to work locally using your own IDE, you can clone this repo and push changes.
+## Tech Stack
+- **Frontend**: React 18, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **Build**: Vite with SWC
+- **Deployment**: GitHub Pages
+- **Package Manager**: Bun (development) / npm (CI/CD)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Development
 
-Follow these steps:
+### Prerequisites
+- Node.js 18+ or Bun runtime
+- Git
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Local Setup
+```bash
+# Clone the repository
+git clone https://github.com/NicolasBamamou/zamsauto-web-craft.git
+cd zamsauto-web-craft
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Install dependencies
+npm install
+# or with Bun
+bun install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+# or with Bun
+bun dev
 ```
 
-**Editing**
+The development server will be available at `http://localhost:8080`
 
-Use your preferred IDE (VS Code recommended). Commit and push changes as normal.
+### Build for Production
+```bash
+npm run build
+```
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Preview Production Build
+```bash
+npm run preview
+```
 
 ## Deployment
 
-Deploy anywhere that supports static builds (e.g. Netlify, Vercel, Cloudflare Pages, GitHub Pages).
+### Automatic Deployment
+The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch via GitHub Actions.
 
-Build output: `dist/` generated via `npm run build`.
+### Manual Deployment
+```bash
+npm run deploy
+```
 
-## Environment / Customization
+## Project Structure
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui base components
+│   ├── Header.tsx      # Navigation header
+│   └── Footer.tsx      # Site footer
+├── pages/              # Route pages
+│   ├── Index.tsx       # Home page
+│   ├── Services.tsx    # Services overview
+│   ├── Booking.tsx     # Appointment booking
+│   ├── Gallery.tsx     # Work gallery
+│   ├── About.tsx       # Company info
+│   └── Contact.tsx     # Contact page
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── assets/             # Images and static assets
+└── index.css           # Global styles and design tokens
+```
 
-Tailwind design tokens are defined in `src/index.css` and `tailwind.config.ts`.
+## GitHub Pages Configuration
+- **Base URL**: `/zamsauto-web-craft/`
+- **Build Output**: `dist/`
+- **Deploy Branch**: `gh-pages` (auto-managed)
+
+## Contributing
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
+This project is proprietary and confidential.
 
-Proprietary - internal use for ZAMSA unless specified otherwise.
+## Contact
+For inquiries about ZAMSA services, visit the [contact page](https://NicolasBamamou.github.io/zamsauto-web-craft/contact) or reach out directly in Nzérékoré, Guinea.
